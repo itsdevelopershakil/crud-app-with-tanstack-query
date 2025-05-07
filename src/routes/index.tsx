@@ -5,6 +5,7 @@ import CreateBlog from "../components/CreateBlog";
 import EditBlog from "../components/EditBlog";
 import useDeleteBlog from "../hooks/useDeleteBlog";
 import useGetAllBlogs from "../hooks/useGetAllBlogs";
+import { formatDate } from "../lib/generateDate";
 
 type Blog = {
   _id: string;
@@ -87,7 +88,9 @@ function RouteComponent() {
             </p>
             <div className="flex justify-between items-center text-sm">
               <span className="text-gray-500">{blog.author}</span>
-              <span className="text-gray-500">{blog.createdAt}</span>
+              <span className="text-gray-500">
+                {formatDate(blog.createdAt)}
+              </span>
             </div>
           </Link>
         ))}

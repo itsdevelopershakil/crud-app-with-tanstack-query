@@ -1,5 +1,6 @@
 import { createFileRoute, useParams } from "@tanstack/react-router";
 import useGetSingleBlog from "../hooks/useGetSingleBlog";
+import { formatDate } from "../lib/generateDate";
 
 export const Route = createFileRoute("/blog/$blogId")({
   component: RouteComponent,
@@ -16,7 +17,7 @@ function RouteComponent() {
       <h1 className="text-2xl font-semibold">{data.title}</h1>
       <div className="flex gap-2 items-center text-sm my-3">
         <span className="text-gray-500">{data.author}</span>
-        <span className="text-gray-500">{data.createdAt}</span>
+        <span className="text-gray-500">{formatDate(data.createdAt)}</span>
       </div>
       <p className="text-gray-600 my-3">{data.description}</p>
     </div>
